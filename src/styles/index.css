@@ -1,0 +1,79 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overscroll-behavior-y: none;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  transition:
+    color 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    opacity 220ms ease;
+}
+
+.interactive-button {
+  will-change: transform;
+}
+
+.page-shell {
+  min-height: 100vh;
+}
+
+.page-loader {
+  background:
+    linear-gradient(90deg, rgba(214, 162, 91, 0) 0%, rgba(214, 162, 91, 0.95) 45%, rgba(214, 162, 91, 0) 100%);
+  transform-origin: left center;
+}
+
+.image-loading-shimmer {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(246, 243, 238, 0.18) 0%,
+      rgba(246, 243, 238, 0.52) 50%,
+      rgba(246, 243, 238, 0.18) 100%
+    );
+  background-size: 200% 100%;
+  animation: image-shimmer 1.4s linear infinite;
+}
+
+@keyframes image-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    transition-duration: 0.01ms;
+  }
+
+  .image-loading-shimmer {
+    animation: none;
+  }
+}
