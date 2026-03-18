@@ -1,3 +1,4 @@
+import { motion } from 'motion/react';
 import { Scissors, Package, RotateCcw, Award } from 'lucide-react';
 import { Reveal } from './animations';
 
@@ -43,15 +44,21 @@ export function WhyChooseUs() {
                 delay={index * 0.08}
                 className="text-center"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 mb-4 border-2 border-[#2D332B] rounded-full">
-                  <Icon className="w-8 h-8 text-[#2D332B]" />
-                </div>
-                <h3 className="mb-2 text-lg font-['Playfair_Display'] text-[#2F2F2F] sm:text-xl">
-                  {feature.title}
-                </h3>
-                <p className="text-[#2D332B] font-['Inter']">
-                  {feature.description}
-                </p>
+                <motion.div
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                  className="rounded-[28px] border border-[#B68B63]/18 bg-[#F6F3EE]/45 px-5 py-8 shadow-[0_12px_30px_rgba(47,47,47,0.04)]"
+                >
+                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#2D332B]">
+                    <Icon className="h-8 w-8 text-[#2D332B]" />
+                  </div>
+                  <h3 className="mb-2 mt-4 text-lg font-['Playfair_Display'] text-[#2F2F2F] sm:text-xl">
+                    {feature.title}
+                  </h3>
+                  <p className="font-['Inter'] text-[#2D332B]">
+                    {feature.description}
+                  </p>
+                </motion.div>
               </Reveal>
             );
           })}

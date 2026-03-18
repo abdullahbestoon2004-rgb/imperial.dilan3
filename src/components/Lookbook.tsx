@@ -30,7 +30,7 @@ export function Lookbook({ images }: LookbookProps) {
             <Reveal
               key={index}
               delay={index * 0.08}
-              className="group relative overflow-hidden cursor-pointer"
+              className="luxury-hover-card group relative overflow-hidden cursor-pointer"
             >
               <div className="aspect-[3/4] relative">
                 <ImageWithFallback

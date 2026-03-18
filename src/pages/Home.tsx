@@ -1,6 +1,7 @@
 import { Hero } from '../components/Hero';
 import { Categories } from '../components/Categories';
 import { FeaturedProducts } from '../components/FeaturedProducts';
+import { EditorialFeature } from '../components/EditorialFeature';
 import { Lookbook } from '../components/Lookbook';
 import { WhyChooseUs } from '../components/WhyChooseUs';
 import { Testimonials } from '../components/Testimonials';
@@ -76,6 +77,7 @@ export default function Home() {
       <Hero heroImage="/dilan2.png" />
       <Categories categories={categories} />
       <FeaturedProducts products={featuredProducts} />
+      <EditorialFeature />
       <Lookbook images={lookbookImages} />
       <WhyChooseUs />
       <Testimonials />

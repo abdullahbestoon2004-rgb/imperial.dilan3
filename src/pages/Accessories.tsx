@@ -235,7 +235,7 @@ export default function Accessories() {
       <section className="py-16 bg-[#E8E1D8]">
         <div className="max-w-[1700px] mx-auto px-4 md:px-6">
           <div className="flex flex-col gap-10 lg:flex-row">
-            <div className="lg:w-72 lg:shrink-0">
+            <div className="sticky top-24 z-20 w-full self-stretch md:top-28 lg:w-72 lg:shrink-0 lg:self-start">
               <CategorySidebar
                 title="Category"
                 options={categoryOptions}

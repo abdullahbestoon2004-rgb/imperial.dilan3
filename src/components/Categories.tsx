@@ -59,7 +59,7 @@ export function Categories({ categories }: CategoriesProps) {
             >
               <CategoryWrapper
                 href={category.href}
-                className="group relative block overflow-hidden cursor-pointer"
+                className="luxury-hover-card group relative block overflow-hidden cursor-pointer"
               >
                 <div className="aspect-[3/4] relative overflow-hidden">
                   <ImageWithFallback

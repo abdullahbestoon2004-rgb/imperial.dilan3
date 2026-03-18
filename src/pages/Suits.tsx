@@ -201,7 +201,7 @@ export default function Suits() {
         imageSrc="/dilanWalking.png"
         imageAlt="Dilan walking"
         eager
-        imageClassName="object-cover object-top"
+        imageClassName="object-cover object-[42.5%_center] md:object-top"
       >
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -224,7 +224,7 @@ export default function Suits() {
       <section className="py-16 bg-[#E8E1D8]">
         <div className="max-w-[1700px] mx-auto px-4 md:px-6">
           <div className="flex flex-col gap-10 lg:flex-row">
-            <div className="lg:w-60 lg:shrink-0">
+            <div className="sticky top-24 z-20 w-full self-stretch md:top-28 lg:w-60 lg:shrink-0 lg:self-start">
               <CategorySidebar
                 title="Category"
                 options={categoryOptions}

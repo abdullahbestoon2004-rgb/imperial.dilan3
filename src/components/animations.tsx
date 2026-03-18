@@ -22,6 +22,7 @@ type ParallaxBannerProps = {
   imageClassName?: string;
   overlayClassName?: string;
   className?: string;
+  contentClassName?: string;
   eager?: boolean;
   children: ReactNode;
 };
@@ -38,8 +39,13 @@ export function Reveal({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: reduceMotion ? 0 : y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{
+        opacity: 0,
+        y: reduceMotion ? 0 : y,
+        filter: reduceMotion ? 'blur(0px)' : 'blur(10px)',
+        scale: reduceMotion ? 1 : 0.985,
+      }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
       viewport={{ once: true, amount }}
       transition={{
         duration: reduceMotion ? 0.01 : duration,
@@ -58,9 +64,9 @@ export function MotionButton({ className = '', children, ...props }: MotionButto
 
   return (
     <motion.button
-      whileHover={reduceMotion ? undefined : { scale: 1.03, y: -2 }}
+      whileHover={reduceMotion ? undefined : { scale: 1.02, y: -4 }}
       whileTap={reduceMotion ? undefined : { scale: 0.985 }}
-      transition={{ duration: 0.22, ease: 'easeOut' }}
+      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
       className={`interactive-button ${className}`.trim()}
       {...props}
     >
@@ -76,6 +82,7 @@ export function ParallaxBanner({
   imageClassName = 'object-cover object-center',
   overlayClassName = 'bg-gradient-to-b from-[#2F2F2F]/50 to-[#2F2F2F]/70',
   className = 'bg-[#E8E1D8]',
+  contentClassName = 'relative z-10 px-6 text-center',
   eager = false,
   children,
 }: ParallaxBannerProps) {
@@ -98,8 +105,11 @@ export function ParallaxBanner({
         style={{ y, scale: reduceMotion ? 1 : 1.14 }}
         className={`absolute top-0 left-1/2 h-full w-full max-w-[1935px] -translate-x-1/2 will-change-transform ${imageClassName}`.trim()}
       />
-      <div className={`absolute top-0 left-1/2 h-full w-full max-w-[1935px] -translate-x-1/2 ${overlayClassName}`.trim()} />
-      <div className="relative z-10 px-6 text-center">{children}</div>
+      <motion.div
+        style={{ y, scale: reduceMotion ? 1 : 1.14 }}
+        className={`absolute top-0 left-1/2 h-full w-full max-w-[1935px] -translate-x-1/2 ${overlayClassName}`.trim()}
+      />
+      <div className={contentClassName}>{children}</div>
     </section>
   );
 }
